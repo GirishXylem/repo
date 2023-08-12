@@ -1,0 +1,13 @@
+{
+    "st": startDate,
+    "et": endDate,
+    "criteria_id": 11,
+    "magnitudeAbove": null,
+    "limit": null,
+    "mitigating": false,
+    "risk": ["high", "medium"],
+    "pipe_collection": "dataintelpubpipestest",
+    "source_collection": "layers_pub",
+    "supply_zones": [zone-list],
+    "tag_network_name": "potable_water"
+}

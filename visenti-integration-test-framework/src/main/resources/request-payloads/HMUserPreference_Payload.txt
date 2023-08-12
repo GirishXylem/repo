@@ -1,0 +1,5 @@
+{
+    "userId": "uID",
+    "customerId": "cId",
+    "hmMaintenanceActivitiesCols": [column-list]
+}

@@ -1,0 +1,7 @@
+{
+    "st": startDate,
+    "et": endDate,
+    "criteria_id": 11,
+    "supply_zones": [zone-list],
+    "tag_network_name": "potable_water"
+}

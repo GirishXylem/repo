@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.1.0 http://maven.apache.org/xsd/settings-1.1.0.xsd" xmlns="http://maven.apache.org/SETTINGS/1.1.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <servers>
+      <server>
+      <username>${MAVEN_USERNAME}</username>
+      <password>${MAVEN_PASSWORD}</password>
+      <id>jfrog.cloud.visenti.com</id>
+      </server>
+      <server>
+        <username>${MAVEN_USERNAME}</username>
+        <password>${MAVEN_PASSWORD}</password>
+        <id>central</id>
+      </server>
+      <server>
+        <username>${MAVEN_USERNAME}</username>
+        <password>${MAVEN_PASSWORD}</password>
+        <id>snapshots</id>
+      </server>
+  </servers>
+  <profiles>
+    <profile>
+      <id>Data-Status</id>
+    </profile>
+    <profile>
+      <repositories>
+        <repository>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
+          <id>central</id>
+          <name>libs-release</name>
+          <url>https://jfrog.cloud.visenti.com/artifactory/libs-release</url>
+        </repository>
+        <repository>
+          <snapshots />
+          <id>snapshots</id>
+          <name>libs-snapshot</name>
+          <url>https://jfrog.cloud.visenti.com/artifactory/libs-snapshot</url>
+        </repository>
+      </repositories>
+      <pluginRepositories>
+        <pluginRepository>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
+          <id>central</id>
+          <name>libs-release</name>
+          <url>https://jfrog.cloud.visenti.com/artifactory/libs-release</url>
+        </pluginRepository>
+        <pluginRepository>
+          <snapshots />
+          <id>snapshots</id>
+          <name>libs-snapshot</name>
+          <url>https://jfrog.cloud.visenti.com/artifactory/libs-snapshot</url>
+        </pluginRepository>
+      </pluginRepositories>
+      <id>artifactory</id>
+    </profile>
+  </profiles>
+  <activeProfiles>
+    <activeProfile>artifactory</activeProfile>
+    <activeProfile>Data-Status</activeProfile>
+  </activeProfiles>
+</settings>

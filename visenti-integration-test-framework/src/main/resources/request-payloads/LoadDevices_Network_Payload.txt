@@ -1,0 +1,9 @@
+{
+    "station_filter": {
+        "tag_network_name": ["network-name"],
+        "supply_zones": [zone-list]
+    },
+    "sensor_filter": {
+        "sensortype_actual": [actual-sensors
+    }
+}

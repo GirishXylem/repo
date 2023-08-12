@@ -1,0 +1,13 @@
+pipeline
+{
+    agent any
+    stages
+    {
+        stage('run : Docker Image')
+        {
+            steps{
+                    sh label: '', script: 'sudo docker run --rm docker-registry.cloud.visenti.com/$DOCKER_IMAGE'
+            }
+        }
+    }
+}

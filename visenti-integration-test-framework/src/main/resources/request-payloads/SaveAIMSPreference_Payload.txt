@@ -1,0 +1,41 @@
+{
+    "userId": "user_name",
+    "preferences": [{
+            "customerId": "customer_name",
+            "config": {
+                "incidentType": [],
+                "category": [],
+                "attend": [{
+                        "key": "All",
+                        "title": "All"
+                    }
+                ],
+                "recommendation": [{
+                        "key": "high",
+                        "title": "high"
+                    }, {
+                        "key": "medium",
+                        "title": "medium"
+                    }, {
+                        "key": "low",
+                        "title": "low"
+                    }
+                ],
+                "status": [],
+                "ongoing": [{
+                        "key": "Yes",
+                        "title": "Yes"
+                    }, {
+                        "key": "No",
+                        "title": "No"
+                    }
+                ],
+                "beepSound": [{
+                        "key": "Mute",
+                        "title": "Mute"
+                    }
+                ]
+            }
+        }
+    ]
+}

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Visenti Automation Test Suite" verbose="1" parallel="tests" thread-count="1" configfailurepolicy="continue">
+    <listeners>
+        <listener class-name="com.visenti.test.automation.helpers.TestListener" />
+    </listeners>
+    <test name="Visenti Test Framework" annotations="JDK" preserve-order="true">
+        <parameter name="browser" value="chrome" />
+        <classes>
+            <class name="com.visenti.test.automation.runners.TestCommonRunner"/>
+        </classes>
+    </test>
+</suite>

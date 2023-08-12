@@ -1,0 +1,47 @@
+<html>
+	<head>
+	<style>
+	table, td, th {
+  	border: 1px solid black;
+	border-collapse: collapse;
+	text-align:center
+	
+}	
+	th{
+background-color:powderblue;
+}
+h4{
+text-align:left
+}
+
+	</style>
+	</head>	
+	<body>
+		<p>Hi all ,</p>
+	<p>Please download the attached zip file for the complete execution report.<br>
+	Below is a brief test execution summary:
+		</p><br><br>
+		
+			<table style="margin-left:400px">
+			<caption style="font-size: 30px">Test Execution Summary</caption>
+			<tr>
+			<th>S.No</th>
+			<th>Module</th>
+			<th>ScenarioName</th>
+			<th>ScenarioType</th>
+			<th>ScenarioStatus</th>
+			</tr>
+			{tableBody}
+			</table>
+		<br><br>
+			<h4>Customer Name ={customerName}</h4>
+			<h4>Execution Environment ={executionEnvironment}</h4>
+			<h4 >Total Scenarios Executed ={countTotal}</h4>
+			<h4 style="color:green;">Total Scenarios Passed={countPass}</h4>
+			<h4 style="color:red;">Total Scenarios Failed={countFail}</h4>
+			<h4 >Test Suite Executed By : {userName}</h4>	<br>
+		<p>Regards,</p>
+		<p style="text-indent:50px;font-weight:bold">Visenti Automation Team</p>
+		
+	</body>
+</html>

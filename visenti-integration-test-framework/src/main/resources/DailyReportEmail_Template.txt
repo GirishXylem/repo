@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <style>
+            table,th,td,caption {
+                border-collapse: collapse;
+                border: 1px solid black;
+            }
+            td {
+                text-align:left;
+            } th {
+                text-align:center;
+                color: white;
+                background-color: gray;
+            } caption {
+                color: white;
+                background-color: gray;
+                font-size: 20px;
+            }
+        </style>
+	</head>	
+	<body>
+		<p>Hi All ,</p>
+        {tableBody}
+        <br>
+        <h4>Customer Name ={customerName}</h4>
+        <h4>Execution Environment ={executionEnvironment}</h4>
+        <br>
+		<p>Regards,</p>
+		<p style="font-weight:bold">Xylem Automation Team</p>
+	</body>
+</html>

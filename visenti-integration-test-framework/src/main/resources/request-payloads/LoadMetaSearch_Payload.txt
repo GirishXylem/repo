@@ -1,0 +1,7 @@
+{
+    "type": "search-type
+    "searchString": "search-id",
+    "filter": {
+        "tag_network_name": "potable_water"
+    }
+}

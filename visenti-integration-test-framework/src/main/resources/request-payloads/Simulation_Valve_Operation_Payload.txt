@@ -1,0 +1,59 @@
+{
+    "valveOperation": {
+        "checkDiscoloration": true,
+        "checkWaterAge": false,
+        "valves": [{
+                "end": "endDate",
+                "operation": "Close",
+                "percentageOfThrottle": null,
+                "start": "startDate",
+                "valveId": "valve_id"
+            }
+        ],
+        "zone": "yw"
+    },
+    "simulationResult": {
+        "user": "kishan.ks@xyleminc.com",
+        "name": "Valve Operation Test - created_on",
+        "createdOn": "created_on",
+        "scenarios": [{
+                "simulationId": "VALVE_OPERATION",
+                "state": {
+                    "selectionItems": [{
+                            "component": {
+                                "assetType": "layer",
+                                "layerType": "valve",
+                                "latitude": 53.37302364,
+                                "zone": "yw",
+                                "tag_plotter_identifier": "app/MapPage/PLOTTER_TAG_IDENTIFIER",
+                                "longitude": -1.491153989,
+                                "metaInfo": "{\"id\":\"valve_id\",\"type\":\"valve\",\"zone\":\"yw\",\"description\":\"Open\",\"asset_id\":\"valve_id\",\"TYPE\":\"valve\",\"DESCRIPTION\":\"Open\",\"criticality\":\"LOW\"}",
+                                "angle": 118,
+                                "title": "valve",
+                                "simulatedSensors": "[]",
+                                "ObjectID": 25,
+                                "type": "gis",
+                                "id": "valve_id",
+                                "description": "Open",
+                                "iconPath": "Open"
+                            },
+                            "otherElements": {
+                                "startTime": fromDate,
+                                "endTime": toDate,
+                                "valveState": "Close"
+                            }
+                        }
+                    ],
+                    "checkDiscoloration": true,
+                    "checkWaterAge": false,
+                    "checkMultiZone": false,
+                    "selectedMultiZone": "yw",
+                    "disabledZoneControl": false
+                }
+            }
+        ],
+        "result": null,
+        "id": "uuid",
+        "savedForLater": false
+    }
+}

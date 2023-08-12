@@ -1,0 +1,63 @@
+{
+    "newWaterDemandOrSource": {
+        "checkDiscoloration": false,
+        "checkWaterAge": false,
+        "junctions": [{
+                "junctionId": "junction_Id",
+                "type": "DEMAND",
+                "waterDemandAmount": 0.001,
+                "start": "startDate",
+                "end": "endDate"
+            }
+        ],
+        "zone": "yw"
+    },
+    "simulationResult": {
+        "user": "kishan.ks@xyleminc.com",
+        "name": "NWD - created_on",
+        "createdOn": "created_on",
+        "scenarios": [{
+                "simulationId": "NEW_WATER_DEMAND_OR_SOURCE",
+                "state": {
+                    "selectionItems": [{
+                            "component": {
+                                "assetType": "layer",
+                                "layerType": "junction",
+                                "latitude": 53.38929402,
+                                "zone": "yw",
+                                "tag_plotter_identifier": "app/MapPage/PLOTTER_TAG_IDENTIFIER",
+                                "longitude": -1.492809677,
+                                "metaInfo": "{\"zone\":\"yw\",\"DESCRIPTION\":\"junction_Id\",\"id\":\"junction_Id\",\"TYPE\":\"junction\",\"extras\":{}}",
+                                "angle": null,
+                                "title": "junction",
+                                "simulatedSensors": "[]",
+                                "ObjectID": 13,
+                                "type": "gis",
+                                "id": "junction_Id",
+                                "description": "junction_Id",
+                                "iconPath": "images/mapicons/node_normal.png"
+                            },
+                            "otherElements": {
+                                "waterSimulationType": "DEMAND",
+                                "waterDemand": 0.001,
+                                "startTime": fromDate,
+                                "endTime": toDate
+                            }
+                        }
+                    ],
+                    "rowInitialData": {
+                        "waterSimulationType": "DEMAND"
+                    },
+                    "checkDiscoloration": false,
+                    "checkWaterAge": false,
+                    "checkMultiZone": false,
+                    "selectedMultiZone": "yw",
+                    "disabledZoneControl": false
+                }
+            }
+        ],
+        "result": null,
+        "id": "uuid",
+        "savedForLater": false
+    }
+}

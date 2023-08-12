@@ -1,0 +1,15 @@
+{
+    "incidentType": [incident-type],
+    "fromDate": startDate,
+    "toDate": endDate,
+    "rank": [],
+    "anomaly": [anomaly-list],
+    "recommendation": ["high", "medium"],
+    "status": [],
+    "ongoing": [true, false],
+    "state": ["All"],
+    "searchByEventTime": true,
+    "tags": [],
+    "supply_zones": [zones-list],
+    "tag_network_name": "potable_water"
+}

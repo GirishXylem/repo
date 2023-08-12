@@ -1,0 +1,133 @@
+image: maven:3.6.3
+options:
+  docker: true
+pipelines:
+  custom:
+    QA-YW:
+      - step: 
+          name: "QA-YW[build, tag, push docker image]"
+          script:
+            - cd visenti-integration-test-framework/
+            - echo "1. Login to docker, $DOCKER_REPO_URL"
+            - echo $DOCKER_REPO_PASSWORD | docker login -u $DOCKER_REPO_USERNAME --password-stdin $DOCKER_REPO_URL
+            - echo "building and tagging docker image for QA-YW env "
+            - docker build --no-cache --build-arg ExecProfile=Daily-Report --build-arg ExecEnvironment=qa --build-arg ExecCustomer=yw -t $DOCKER_REPO_URL/$DOCKER_IMAGE_NAME:$BITBUCKET_BUILD_NUMBER .
+            - echo "pushing image $DOCKER_IMAGE_NAME:$BITBUCKET_BUILD_NUMBER to $DOCKER_REPO_URL registry "
+            - docker push $DOCKER_REPO_URL/$DOCKER_IMAGE_NAME:$BITBUCKET_BUILD_NUMBER
+          services:
+            - docker
+          caches:
+            - docker # adds docker layer caching   
+    Prod-YW:
+      - step: 
+          name: "Prod-YW[build, tag, push docker image]"
+          script:
+            - cd visenti-integration-test-framework/
+            - echo "1. Login to docker, $DOCKER_REPO_URL"
+            - echo $DOCKER_REPO_PASSWORD | docker login -u $DOCKER_REPO_USERNAME --password-stdin $DOCKER_REPO_URL
+            - echo "building and tagging docker image for Prod-YW env "
+            - docker build --no-cache --build-arg ExecProfile=HM-Report --build-arg ExecEnvironment=prod --build-arg ExecCustomer=yw -t $DOCKER_REPO_URL/$DOCKER_IMAGE_NAME:$BITBUCKET_BUILD_NUMBER .
+            - echo "pushing image $DOCKER_IMAGE_NAME:$BITBUCKET_BUILD_NUMBER to $DOCKER_REPO_URL registry "
+            - docker push $DOCKER_REPO_URL/$DOCKER_IMAGE_NAME:$BITBUCKET_BUILD_NUMBER
+          services:
+            - docker
+          caches:
+            - docker # adds docker layer caching   
+    QA-CLOUD:
+      - step: 
+          name: "QA-CLOUD[build, tag, push docker image]"
+          script:
+            - cd visenti-integration-test-framework/
+            - echo "1. Login to docker, $DOCKER_REPO_URL"
+            - echo $DOCKER_REPO_PASSWORD | docker login -u $DOCKER_REPO_USERNAME --password-stdin $DOCKER_REPO_URL
+            - echo "building and tagging docker image for QA-Cloud env "
+            - docker build --no-cache --build-arg ExecProfile=Daily-Report --build-arg ExecEnvironment=qa --build-arg ExecCustomer=cloud -t $DOCKER_REPO_URL/$DOCKER_IMAGE_NAME:$BITBUCKET_BUILD_NUMBER .
+            - echo "pushing image $DOCKER_IMAGE_NAME:$BITBUCKET_BUILD_NUMBER to $DOCKER_REPO_URL registry "
+            - docker push $DOCKER_REPO_URL/$DOCKER_IMAGE_NAME:$BITBUCKET_BUILD_NUMBER
+          services:
+            - docker
+          caches:
+            - docker # adds docker layer caching   
+    DEV-CLOUD:
+      - step: 
+          name: "Dev-CLOUD[build, tag, push docker image]"
+          script:
+            - cd visenti-integration-test-framework/
+            - echo "1. Login to docker, $DOCKER_REPO_URL"
+            - echo $DOCKER_REPO_PASSWORD | docker login -u $DOCKER_REPO_USERNAME --password-stdin $DOCKER_REPO_URL
+            - echo "building and tagging docker image for Dev-Cloud env "
+            - docker build --no-cache --build-arg ExecProfile=Daily-Report --build-arg ExecEnvironment=dev --build-arg ExecCustomer=cloud -t $DOCKER_REPO_URL/$DOCKER_IMAGE_NAME:$BITBUCKET_BUILD_NUMBER .
+            - echo "pushing image $DOCKER_IMAGE_NAME:$BITBUCKET_BUILD_NUMBER to $DOCKER_REPO_URL registry "
+            - docker push $DOCKER_REPO_URL/$DOCKER_IMAGE_NAME:$BITBUCKET_BUILD_NUMBER
+          services:
+            - docker
+          caches:
+            - docker # adds docker layer caching   
+    QA-PUB:
+      - step: 
+          name: "QA-PUB[build, tag, push docker image]"
+          script:
+            - cd visenti-integration-test-framework/
+            - echo "1. Login to docker, $DOCKER_REPO_URL"
+            - echo $DOCKER_REPO_PASSWORD | docker login -u $DOCKER_REPO_USERNAME --password-stdin $DOCKER_REPO_URL
+            - echo "building and tagging docker image for QA-PUB env "
+            - docker build --no-cache --build-arg ExecProfile=Daily-Report --build-arg ExecEnvironment=qa --build-arg ExecCustomer=pub -t $DOCKER_REPO_URL/$DOCKER_IMAGE_NAME:$BITBUCKET_BUILD_NUMBER .
+            - echo "pushing image $DOCKER_IMAGE_NAME:$BITBUCKET_BUILD_NUMBER to $DOCKER_REPO_URL registry "
+            - docker push $DOCKER_REPO_URL/$DOCKER_IMAGE_NAME:$BITBUCKET_BUILD_NUMBER
+          services:
+            - docker
+          caches:
+            - docker # adds docker layer caching   
+    Prod-PUB:
+      - step: 
+          name: "Prod-PUB[build, tag, push docker image]"
+          script:
+            - cd visenti-integration-test-framework/
+            - echo "1. Login to docker, $DOCKER_REPO_URL"
+            - echo $DOCKER_REPO_PASSWORD | docker login -u $DOCKER_REPO_USERNAME --password-stdin $DOCKER_REPO_URL
+            - echo "building and tagging docker image for Prod-PUB env "
+            - docker build --no-cache --build-arg ExecProfile=Daily-Report --build-arg ExecEnvironment=prod --build-arg ExecCustomer=pub -t $DOCKER_REPO_URL/$DOCKER_IMAGE_NAME:$BITBUCKET_BUILD_NUMBER .
+            - echo "pushing image $DOCKER_IMAGE_NAME:$BITBUCKET_BUILD_NUMBER to $DOCKER_REPO_URL registry "
+            - docker push $DOCKER_REPO_URL/$DOCKER_IMAGE_NAME:$BITBUCKET_BUILD_NUMBER
+          services:
+            - docker
+          caches:
+            - docker # adds docker layer caching
+    Checkmarx SAST/SCA scan:
+      - step:
+          name: Checkmarx SAST/SCA Scan
+          max-time: 25
+          #image: checkmarx/cx-flow:1.6.19
+          script:
+          - docker run -v $BITBUCKET_CLONE_DIR:/code --entrypoint java checkmarx/cx-flow:latest -Xms512m -Xmx3072m -XshowSettings:all -jar /app/cx-flow.jar
+            --scan
+            --f=/code
+            --app=$BITBUCKET_REPO_SLUG
+            --cx-project=$BITBUCKET_REPO_SLUG
+            --repo-name=$BITBUCKET_REPO_SLUG
+            --namespace=$BITBUCKET_REPO_SLUG
+            --branch=$BITBUCKET_BRANCH
+            --checkmarx.version=$CX_VERSION
+            --checkmarx.client-id="$CX_CLIENT_ID"
+            --checkmarx.client-secret="$CX_CLIENT_SECRET"
+            --checkmarx.scope="$CX_SCOPE"
+            --checkmarx.base-url=$CX_SERVER
+            --checkmarx.team="$CX_TEAM"
+            --checkmarx.username="$CX_USERNAME"
+            --checkmarx.password=$CX_PASSWORD
+            --checkmarx.incremental=$CX_INCREMENTAL_SCAN
+            --checkmarx.incremental-threshold=$CX_INCREMENTAL_THRESHOLD
+            --checkmarx.incremental-num-scans=$CX_INCREMENTAL_NUM_SCANS
+            --checkmarx.multi-tenant=false
+            --cx-flow.filter-severity="${CX_FILTER_SEVERITY}"
+            --cx-flow.enabled-vulnerability-scanners="sast,sca"
+            --cx-flow.bug-tracker=$CX_BUG_TRACKER
+            --cx-flow.break-build=$CX_BREAK_BUILD
+            --sca.appUrl="https://sca.checkmarx.net"
+            --sca.apiUrl="https://api-sca.checkmarx.net"
+            --sca.accessControlUrl="https://platform.checkmarx.net"
+            --sca.tenant="xylem"
+            --sca.username="$SCA_USER"
+            --sca.password="$SCA_PASSWORD"
+            --sca.team="$CX_TEAM"
+

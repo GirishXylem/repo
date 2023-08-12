@@ -1,0 +1,15 @@
+{
+    "request": {
+        "st": startDate,
+        "et": endDate,
+        "intervalmin": dma-interval,
+        "vee": "dma-data-type",
+        "include": ["dma-id"],
+        "sensortype": "dma-sensor",
+        "timezone": "Europe/London",
+        "format": "csv",
+        "unit": "dma-sensor-unit",
+        "isSimulated": true
+    }
+}
+

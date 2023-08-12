@@ -1,0 +1,18 @@
+{
+    "type": "gis-type",
+    "geoBoundingBox": {
+        "top_left": {
+            "lat": "left-lat",
+            "lon": "left-lon"
+        },
+        "bottom_right": {
+            "lat": "right-lat",
+            "lon": "right-lon"
+        }
+    },
+    "tag_network_name": "potable_water",
+    "pipeDiameter": {
+        "gte": 300,
+        "lte": null
+    }
+}

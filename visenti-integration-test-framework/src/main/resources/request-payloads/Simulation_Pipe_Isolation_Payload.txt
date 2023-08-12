@@ -1,0 +1,60 @@
+{
+    "pipeIsolation": {
+        "checkDiscoloration": true,
+        "checkWaterAge": true,
+        "end": "endDate",
+        "faultyValves": [],
+        "pipes": ["pipeId"],
+        "start": "startDate",
+        "zone": "yw"
+    },
+    "simulationResult": {
+        "user": "kishan.ks@xyleminc.com",
+        "name": "Pipe Isolation Test - created_on",
+        "createdOn": "created_on",
+        "scenarios": [{
+                "simulationId": "PIPE_ISOLATION",
+                "state": {
+                    "endTime": toDate,
+                    "selectedMultiZone": "yw",
+                    "selectedPipes": [{
+                            "filter_type": "default_1.1",
+                            "material": "N.A",
+                            "assetType": "layer",
+                            "layerType": "pipe",
+                            "resolution": null,
+                            "zone": "yw",
+                            "diameter": "110",
+                            "tag_plotter_identifier": "app/MapPage/PLOTTER_TAG_IDENTIFIER",
+                            "value": null,
+                            "metaInfo": "{\"pipeDiameter\":110,\"zone\":\"yw\",\"id\":\"pipeId\",\"TYPE\":\"pipe\",\"extras\":{}}",
+                            "label": "N.A - 110",
+                            "title": "pipe",
+                            "simulatedSensors": "[]",
+                            "ObjectID": 44,
+                            "type": "gis",
+                            "sensor": null,
+                            "id": "pipeId",
+                            "coordinates": "[{\"lon\":\"-1.491600781\",\"lat\":\"53.38961523\",\"sequence\":\"0\"},{\"lon\":\"-1.491854179\",\"lat\":\"53.38955565\",\"sequence\":\"1\"},{\"lon\":\"-1.492100106\",\"lat\":\"53.38949325\",\"sequence\":\"2\"},{\"lon\":\"-1.492203205\",\"lat\":\"53.38946555\",\"sequence\":\"3\"},{\"lon\":\"-1.492374627\",\"lat\":\"53.38940531\",\"sequence\":\"4\"},{\"lon\":\"-1.492493819\",\"lat\":\"53.38936739\",\"sequence\":\"5\"},{\"lon\":\"-1.492517737\",\"lat\":\"53.38936288\",\"sequence\":\"6\"}]",
+                            "description": null,
+                            "component": {
+                                "id": "pipeId"
+                            },
+                            "age": "N.A"
+                        }
+                    ],
+                    "startTime": fromDate,
+                    "inoperableValves": [],
+                    "checkWaterAge": true,
+                    "disabledZoneControl": false,
+                    "checkDiscoloration": true,
+                    "checkMultiZone": false,
+                    "identifiedValves": null
+                }
+            }
+        ],
+        "result": null,
+        "id": "uuid",
+        "savedForLater": false
+    }
+}

@@ -1,0 +1,5 @@
+{
+    "supply_zones": [zone-list],
+    "st": startDate,
+    "et": endDate
+}
