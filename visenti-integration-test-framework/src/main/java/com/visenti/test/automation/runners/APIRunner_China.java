@@ -22,6 +22,7 @@ public class APIRunner_China extends AbstractBaseRunner {
     @BeforeClass(alwaysRun = true)
     public void setUpClass() throws Exception {
         super.setUpClass();
+        System.out.println("i am sample");
         ReportingHelper.setOutputPathForExtentReport(API_TEST_EXECUTION_REPORT_FOLDER_PATH);
     }
 }
